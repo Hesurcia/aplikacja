@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+        #clock {
+            font-family: 'Roboto', sans-serif;
+            font-size: 4em;
+            color: #ffffff;
+            margin-top: 20px;
+        }
+    </style>
+    <title>iPhone-like Phone</title>
+</head>
+<body>
+    <div class="phone">
+        <div id="notch">
+            <div class="camera-island">
+                <div class="camera-lens"></div>
+            </div>
+        </div>
+        <div id="screen">
+            <div id="hesurcia-text">Hesurcia</div>
+            <div id="clock"></div>
+            <div id="battery">
+                <div id="battery-level">
+                    <div id="battery-inner"></div>
+                </div>
+                <div id="battery-text">100%</div>
+                <div id="charge-button"></div>
+                <div id="charge-indicator"></div>
+            </div>
+            <div id="app-icons" class="right-blocked">
+                <a href="messenger.html"><div class="app-icon messenger" onclick="showAppContent('messenger-app')"></div></a>
+                <a href="zdiecia.html"><div class="app-icon gallery" onclick="showAppContent('gallery-app')"></div></a>
+                <div class="app-icon email" onclick="showAppContent('email-app')"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const timeString = `${hours}:${minutes}`;
+            document.getElementById('clock').innerText = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Aktualizuj zegar od razu po załadowaniu strony
+    </script>
+</body>
+</html>
